@@ -14,22 +14,18 @@
 
 <body>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">
             <img src="./capture.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-            <span id=logo>seller2<span id="red">cellar</span></span>
+            <span id=logo>Seller2<span id="red">Cellar</span></span>
         </a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </nav>
 
     <div id="user-interface" class="container">
         <div class="row">
-            <div class="col-3">
+            <div id="side-navigation" class="col-3 position-fixed">
                 <!-- UserName -->
-                <h1 class="display-4">VolksRat71</h1>
+                <h3 class="display-4 text-center">VolksRat71</h3>
                 <!-- Profile Picture -->
                 <img class="profile_img" src="./fake_profile.jpg">
 
@@ -48,10 +44,9 @@
                     <a class="list-group-item list-group-item-danger list-group-item-action" id="list-privateStock-list"
                         data-toggle="list" href="#list-privateStock" role="tab" aria-controls="privateStock">Private
                         Stock</a>
-
                 </div>
             </div>
-            <div class="col-9">
+            <div id="newsfeed" class="col-9">
                 <div class="tab-content" id="nav-tabContent">
                     <!-- Profile 2-->
                     <div class="tab-pane fade show active" id="list-profile" role="tabpanel"
@@ -60,19 +55,19 @@
                             <div class="col-4">
                                 <div class="list-group" id="list-tab" role="tablist">
                                     <!-- About Me 1-->
-                                    <a class="list-group-item list-group-item-danger list-group-item-action active"
+                                    <a class="list-group-item list-group-item-light list-group-item-action active"
                                         id="list-aboutMe-list" data-toggle="list" href="#list-aboutMe" role="tab"
                                         aria-controls="aboutMe">About Me</a>
                                     <!-- Places 1-->
-                                    <a class="list-group-item list-group-item-danger list-group-item-action"
+                                    <a class="list-group-item list-group-item-light list-group-item-action"
                                         id="list-places-list" data-toggle="list" href="#list-places" role="tab"
                                         aria-controls="places">Places</a>
                                     <!-- Occupation 1-->
-                                    <a class="list-group-item list-group-item-danger list-group-item-action"
+                                    <a class="list-group-item list-group-item-light list-group-item-action"
                                         id="list-occupation-list" data-toggle="list" href="#list-occupation" role="tab"
                                         aria-controls="occupation">Occupation</a>
                                     <!-- Favorite Wine Makers 1-->
-                                    <a class="list-group-item list-group-item-danger list-group-item-action"
+                                    <a class="list-group-item list-group-item-light list-group-item-action"
                                         id="list-favoriteWineMakers-list" data-toggle="list"
                                         href="#list-favoriteWineMakers" role="tab"
                                         aria-controls="favoariteWineMakers">Favorite Wine Makers</a>
@@ -98,67 +93,78 @@
                     </div>
                     <!-- Social 2-->
                     <div class="tab-pane fade" id="list-social" role="tabpanel" aria-labelledby="list-social-list">
-                        Before they sold out activated charcoal schlitz crucifix, four loko williamsburg dreamcatcher
-                        salvia readymade migas you probably haven't heard of them pitchfork ugh messenger bag. Stumptown
-                        yr authentic polaroid affogato, twee vinyl vegan microdosing selvage pinterest narwhal fashion
-                        axe godard. Bushwick schlitz poutine craft beer offal ugh kogi keffiyeh quinoa. Narwhal
-                        taxidermy small batch ugh forage. Leggings 8-bit DIY hashtag flexitarian, squid cray selfies
-                        ramps schlitz. 8-bit irony fingerstache typewriter YOLO pabst you probably haven't heard of
-                        them. Mumblecore drinking vinegar pinterest bicycle rights pork belly neutra, craft beer
-                        leggings crucifix pok pok.
-
-                        Four loko coloring book paleo, pickled street art gochujang wayfarers crucifix poke man bun
-                        brunch occupy keytar shabby chic. Fashion axe hammock pop-up helvetica. Heirloom cloud bread
-                        franzen edison bulb. Pickled cray cold-pressed stumptown neutra wolf.
-
-                        90's enamel pin +1, bicycle rights try-hard hammock meggings ugh 3 wolf moon iceland kogi
-                        authentic poke. Austin swag artisan pour-over leggings. Chia everyday carry slow-carb drinking
-                        vinegar retro schlitz, jianbing health goth fingerstache unicorn. Chia tbh bitters subway tile
-                        snackwave, bicycle rights unicorn vape glossier fixie helvetica. Fashion axe locavore
-                        lumbersexual leggings aesthetic glossier iceland four dollar toast affogato scenester blue
-                        bottle. Activated charcoal mixtape cornhole, food truck tattooed bicycle rights XOXO lyft hella
-                        yuccie biodiesel cold-pressed. Tacos ugh fingerstache wolf taxidermy brunch pabst.
-
-                        Shoreditch vice hexagon, hoodie jianbing helvetica meggings flexitarian locavore coloring book
-                        tilde chartreuse salvia. Prism farm-to-table photo booth lo-fi slow-carb jianbing selvage fixie
-                        lomo meggings mustache street art lumbersexual vaporware mlkshk. Narwhal pok pok distillery
-                        XOXO. Jianbing skateboard meh knausgaard celiac.
-
-                        Distillery wayfarers brunch blue bottle hammock hexagon. Mumblecore humblebrag craft beer
-                        try-hard. Cronut ethical gochujang bespoke keffiyeh hell of XOXO. Quinoa kale chips green juice,
-                        vaporware succulents dreamcatcher try-hard thundercats PBR&B locavore tacos.
+                        <ul class="list-unstyled">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="text-secondary">What are you thinking about?</h5>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-dark float-right">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <li class="media">
+                                <img class="post_img" src="./fake_profile.jpg">
+                                <div class="media-body">
+                                    <h5><a href="#" class="text-danger">VolksRat71</a></h5>
+                                    Lorem ipsum dolor amet etsy hot chicken tumblr fixie occupy. Sriracha +1 wolf four
+                                    dollar toast
+                                    tacos fingerstache letterpress semiotics jianbing art party lumbersexual. Tumblr
+                                    retro
+                                    intelligentsia yuccie kogi. Chambray hammock single-origin coffee wayfarers retro.
+                                    Green juice
+                                    scenester stumptown, tilde post-ironic mustache craft beer venmo tbh. Humblebrag
+                                    tousled
+                                    pinterest poke waistcoat kitsch.
+                                </div>
+                            </li>
+                            <li class="media my-4">
+                                <img class="post_img" src="./fake_profile.jpg">
+                                <div class="media-body">
+                                    <h5><a href="#" class="text-danger">VolksRat71</a></h5>
+                                    Sold out XOXO try-hard pour-over pickled next level tousled jianbing single-origin
+                                    coffee.
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="post_img" src="./fake_profile.jpg">
+                                <div class="media-body">
+                                    <h5><a href="#" class="text-danger">VolksRat71</a></h5>
+                                    Brunch kogi cliche wolf tote bag, kale chips tofu swag kinfolk copper mug cornhole
+                                    migas seitan
+                                    3 wolf moon coloring book. Aesthetic schlitz squid mustache chillwave pop-up
+                                    dreamcatcher shabby
+                                    chic wolf 90's air plant heirloom. Street art roof party narwhal church-key four
+                                    dollar toast yr
+                                    banjo asymmetrical pickled plaid man braid pug post-ironic you probably haven't
+                                    heard of them
+                                    beard. Lo-fi tote bag pickled waistcoat humblebrag aesthetic viral yuccie drinking
+                                    vinegar tacos
+                                    hella health goth marfa unicorn ennui. Synth wolf 3 wolf moon pinterest, helvetica
+                                    kickstarter
+                                    hoodie snackwave migas paleo truffaut polaroid crucifix raclette.us.
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img class="post_img" src="./fake_profile.jpg">
+                                <div class="media-body">
+                                    <h5><a href="#" class="text-danger">VolksRat71</a></h5>
+                                    PBR&B venmo cloud bread, cold-pressed bicycle rights bushwick VHS vaporware narwhal
+                                    lo-fi beard.
+                                    Man braid iPhone photo booth chicharrones brunch 90's typewriter shaman cold-pressed
+                                    enamel pin.
+                                    Af cornhole chartreuse wayfarers.
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- For Sale 2-->
+                    <!-- For Sale 2 -->
                     <div class="tab-pane fade" id="list-forSale" role="tabpanel" aria-labelledby="list-forSale-list">
-                        Lorem ipsum dolor amet af shaman pabst, unicorn mumblecore everyday carry fixie forage pour-over
-                        pug tumblr fanny pack lyft live-edge. Iceland unicorn godard, 8-bit enamel pin man braid tofu
-                        try-hard street art letterpress dreamcatcher keytar bicycle rights roof party subway tile.
-                        Williamsburg cred chartreuse ramps poutine cray fanny pack. Tattooed cloud bread af green juice
-                        offal copper mug normcore quinoa chartreuse squid schlitz butcher knausgaard. Af hoodie disrupt
-                        flexitarian. Next level plaid vice, biodiesel glossier 90's swag cornhole stumptown fixie cloud
-                        bread forage. Raclette fingerstache waistcoat, semiotics sriracha brunch tattooed iPhone taiyaki
-                        succulents.
-
-                        Salvia roof party kogi, seitan direct trade chillwave tattooed tofu flexitarian. Tattooed roof
-                        party semiotics 8-bit, flexitarian prism four dollar toast microdosing kale chips schlitz offal.
-                        Offal microdosing occupy, keytar thundercats photo booth sustainable everyday carry stumptown.
-                        Umami mixtape tumeric selvage cray portland bicycle rights edison bulb.
-
-                        Bespoke kombucha master cleanse bushwick, raw denim plaid echo park man braid. Affogato quinoa
-                        jianbing, hashtag mixtape vinyl butcher skateboard keffiyeh. Paleo affogato slow-carb yr,
-                        waistcoat bespoke PBR&B vice selvage wolf. Woke green juice microdosing chicharrones edison
-                        bulb, kitsch cornhole retro church-key. Chillwave chartreuse art party, vape helvetica franzen
-                        mlkshk swag la croix cold-pressed semiotics. Subway tile cliche before they sold out kogi vinyl
-                        microdosing taxidermy snackwave tattooed tote bag hammock bespoke pickled blog blue bottle.
-
-                        Flannel authentic chicharrones, neutra seitan portland 90's bespoke messenger bag flexitarian.
-                        Gentrify umami tote bag mixtape. Sartorial tofu vice pour-over knausgaard. Franzen narwhal pok
-                        pok hashtag locavore ugh disrupt, unicorn keffiyeh.
-
-                        Snackwave mixtape meggings sustainable put a bird on it authentic swag, succulents thundercats
-                        waistcoat iPhone umami synth. Slow-carb artisan leggings, deep v lomo kale chips listicle. Hell
-                        of glossier sustainable tbh meditation tacos. Irony franzen pitchfork affogato, tilde swag
-                        messenger bag beard subway tile pour-over.</div>
+                        Nothing to see here.
+                    </div>
                     <!-- Priveate Stock 2-->
                     <div class="tab-pane fade" id="list-privateStock" role="tabpanel"
                         aria-labelledby="list-privateStock-list">
@@ -214,9 +220,8 @@
 <style>
     body {
         background-image: url("./homescreen_photo.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-
+        background-size: 100% auto;
+        background-attachment: fixed;
     }
 
     #logo {
@@ -229,20 +234,32 @@
     }
 
     #user-interface {
-        height: 100%;
+        margin-top: 5.5%;
     }
 
     .profile_img {
-        width: 95%;
+        width: 70%;
         border-radius: 50%;
         margin-right: 30px;
+        margin-left: 15%;
         margin-bottom: 10px;
         margin-top: 5px;
         border: 2px solid #000000;
     }
 
+    .post_img {
+        width: 10%;
+        border-radius: 50%;
+        border: 1px solid #000000;
+        margin: 5px;
+    }
+
     .media {
         margin-top: 20px;
+    }
+
+    #newsfeed {
+        margin-left: 30%;
     }
 
     .tab-pane {

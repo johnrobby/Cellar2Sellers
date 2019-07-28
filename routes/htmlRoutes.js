@@ -2,8 +2,8 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", sessionChecker(), function(req, res) {
-    res.redirect('index');
+  app.get("/", function(req, res) {
+    res.render('index');
   });
 
   // Load example page and pass in an example by id
@@ -15,6 +15,19 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/signup", function(req, res) {
+    db.Profile.create({
+      name: req.body.name,
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.pass
+    })
+    .then(profile => {
+      req.session.user = profile.dataValues;
+      res.redirect("/profile");
+    });
+  });
+  
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

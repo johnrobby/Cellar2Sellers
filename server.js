@@ -41,12 +41,7 @@ app.use((req, res, next) => {
   next();
 });
 
-var sessionChecker = (req, res, next) => {
-  if(req.session.user && req.cookies.user_sid) {
-    res.redirect('/profile');
-  }
-  next();
-};
+
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);

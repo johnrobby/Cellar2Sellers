@@ -1,10 +1,42 @@
 var db = require("../models");
+var scheck = require("../server");
 
 module.exports = function(app) {
+  
   // Load index page
-  app.get("/", function(req, res) {
+  app.get("/", scheck.sessionChecker, function(req, res) {
     res.render('index');
   });
+
+  app.route("/login")
+    .get(scheck.sessionChecker, (req, res) => {
+      res.render('login');
+    })
+    .post((req, res) => {
+      username = req.body.username,
+      password = req.body.password;
+      console.log(req.body.username);
+      db.Profile.findOne({ 
+        where: {
+           username: username 
+          } 
+        }).then(function(profile) {
+        if (!profile) {
+          console.log("user does not exist");
+          res.redirect('/login');
+        } else if (profile.validatePass(password)) {
+          console.log("user exists but passowrd wrong");
+          res.redirect('/login');
+        } else {
+          console.log("Horray!")
+          req.session.user = profile.dataValues;
+          console.log(user.dataValues);
+        }
+      });
+    });
+  
+  
+
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
@@ -15,19 +47,27 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/signup", function(req, res) {
-    db.Profile.create({
-      name: req.body.name,
-      email: req.body.email,
-      username: req.body.username,
-      password: req.body.pass
+  app.route("/signup") 
+    .get((req, res) => {
+      res.render('signup')
     })
-    .then(profile => {
-      req.session.user = profile.dataValues;
-      res.redirect("/profile");
+    .post((req, res) => {
+      db.Profile.create({
+        name: req.body.name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+      })
+      .then(profile => {
+        req.session.user = profile.dataValues;
+        console.log(req.session.user);
+        res.redirect("/profile");
+      })
+      .catch(error => {
+        res.redirect("/signup")
+      })
     });
-  });
-  
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
@@ -40,7 +80,7 @@ module.exports = function(app) {
 // });
 
 
-// // route for user signup
+// route for user signup
 // app.route('/signup')
 //   //.get(sessionChecker, (req, res) => {
 //   .get((req, res) => {

@@ -40,7 +40,14 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+module.exports = {
+  sessionChecker: function(req, res, next) {
+    if(req.session.user && req.cookies.user_sid) {
+      res.redirect('/profile');
+    }
+    next();  
+  }
+}
 
 // Routes
 require("./routes/apiRoutes")(app);

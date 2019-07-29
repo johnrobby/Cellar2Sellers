@@ -3,20 +3,14 @@
         <div class="card-body">
             <h5 class="card-title">Your solution to wine organization, social and trade</h5>
             <p class="card-text">Join Seller2Cellar today.</p>
-            <button type="button" class="btn btn-outline-dark btn-lg btn-block" data-toggle="modal"
-                data-target="#log-in">
-                Log In
-            </button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal"
-                data-target="#sign-up">
-                Sign Up
-            </button>
+            <a href="/login" class="btn">log in</a>
+            <a href="/signup" class="btn">Sign up</a>
 
         </div>
     </div>
 </div>
 
-<!-- Log In Modal -->
+{{!-- <!-- Log In Modal -->
 <div class="modal fade" id="log-in" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -31,8 +25,8 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Username">
+                        <input type="text" class="form-control" id="username"
+                         placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
@@ -41,12 +35,12 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Log In</button>
+                <input class="btn" type="submit" value="Log in!">
             </div>
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

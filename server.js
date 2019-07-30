@@ -49,13 +49,6 @@ module.exports = {
     next();  
   }
 }
-module.exports.hbsContent = {
-  userName: "",
-  loggedin: false,
-  title: "you are not logged in today",
-  body: "hello world"
-}
-
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);

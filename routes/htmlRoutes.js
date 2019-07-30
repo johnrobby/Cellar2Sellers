@@ -48,21 +48,26 @@ module.exports = function(app) {
       if (in_username && in_password) {
           db.Profile.findOne({
               where: {
-                  username: in_username,
-                  password: in_password
+                  username: in_username
               }
           })
-          .then(account => {
-              if(!account) {
+          .then(profile => {
+              if(!profile) {
                   response.redirect('/');
               } else {
-                  request.session.loggedin = true;
-                  request.session.username = in_username;
-                  response.redirect('/profile');
+                if (bcrypt.compareSync(in_password, profile.password)) {
+                  req.session.user = user.dataValues;
+                  response.redirect('/profile');  
+                }
+                else {
+                  console.log("password does not match");
+                  response.redirect('/');
+                }
               }
           })
           .catch(err => {
-              response.send("incorrect username and or password" + err);
+              console.log("user does not exist");
+              response.redirect('/');
           })
       } else {
           response.send('Please enter Username and Password!');
@@ -94,6 +99,7 @@ module.exports = function(app) {
         })
           .then(profile => {
             req.session.user = profile.dataValues;
+            console.log(req.session.user);
             res.redirect("/profile");
           })
           .catch(err => {
@@ -157,14 +163,10 @@ module.exports = function(app) {
 
   app.get("/profile", function(req, res) {
     if (req.session.user && req.cookies.user_id) {
-      scheck.hbsContent.loggedin = true;
-      scheck.hbsContent.userName = req.session.user.username;
-      scheck.hbsContent.title = "logged in now";
-      res.render("profile", scheck.hbsContent);
+      res.render("profile");
     } else {
-      res.redirect("/login");
+      res.redirect("/");
     }
-
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

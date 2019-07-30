@@ -40,6 +40,7 @@ app.use((req, res, next) => {
   }
   next();
 });
+
 module.exports = {
   sessionChecker: function(req, res, next) {
     if(req.session.user && req.cookies.user_sid) {
@@ -47,6 +48,12 @@ module.exports = {
     }
     next();  
   }
+}
+module.exports.hbsContent = {
+  userName: "",
+  loggedin: false,
+  title: "you are not logged in today",
+  body: "hello world"
 }
 
 // Routes

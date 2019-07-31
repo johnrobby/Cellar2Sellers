@@ -2,14 +2,14 @@ var db = require("../models");
 var scheck = require("../server");
 const bcrypt = require('bcrypt');
 var express = require("express");
-var router = express.Router()
+
   
   // Load index page
-  router.get("/", scheck.sessionChecker, function(req, res) {
+  app.get("/", scheck.sessionChecker, function(req, res) {
     res.render('index');
   });
 
-  router.get("/signup", scheck.sessionChecker, function(req, res) {
+  app.get("/signup", scheck.sessionChecker, function(req, res) {
     res.render('signup');
   });
 
@@ -42,7 +42,7 @@ var router = express.Router()
   //     })      
   //   });
   
-    router.post('/auth', function(request, response) {
+    app.post('/auth', function(request, response) {
       var in_username = request.body.username;
       var in_password = request.body.password;
       if (in_username && in_password) {
@@ -75,7 +75,7 @@ var router = express.Router()
       }
   });
 
-  router.post('/register', function(req, res) {
+  app.post('/register', function(req, res) {
     var profileData = {
       name: req.body.name,
       username: req.body.username,
@@ -161,7 +161,7 @@ var router = express.Router()
   //     })      
   // });
 
-  router.get("/profile", function(req, res) {
+  app.get("/profile", function(req, res) {
     if (req.session.user && req.cookies.user_id) {
       res.render("profile");
     } else {
@@ -169,7 +169,7 @@ var router = express.Router()
     }
   });
   // Render 404 page for any unmatched routes
-  router.get("*", function(req, res) {
+  app.get("*", function(req, res) {
     res.render("404");
   });
 

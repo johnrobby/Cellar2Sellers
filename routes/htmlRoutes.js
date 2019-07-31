@@ -5,11 +5,11 @@ const bcrypt = require('bcrypt');
 module.exports = function(app) {
   
   // Load index page
-  app.get("/", scheck.sessionChecker, function(req, res) {
+  app.get("/", function(req, res) {
     res.render('index');
   });
 
-  app.get("/signup", scheck.sessionChecker, function(req, res) {
+  app.get("/signup", function(req, res) {
     res.render('signup');
   });
 
@@ -42,78 +42,92 @@ module.exports = function(app) {
   //     })      
   //   });
   
-    app.post('/auth', function(request, response) {
-      var in_username = request.body.username;
-      var in_password = request.body.password;
-      if (in_username && in_password) {
-          db.Profile.findOne({
-              where: {
-                  username: in_username
-              }
-          })
-          .then(profile => {
-              if(!profile) {
-                  response.redirect('/');
-              } else {
-                if (bcrypt.compareSync(in_password, profile.password)) {
-                  req.session.user = user.dataValues;
-                  response.redirect('/profile');  
-                }
-                else {
-                  console.log("password does not match");
-                  response.redirect('/');
-                }
-              }
-          })
-          .catch(err => {
-              console.log("user does not exist");
-              response.redirect('/');
-          })
-      } else {
-          response.send('Please enter Username and Password!');
-          response.end();
-      }
+    app.post('/auth', function(req, res) {
+      db.Profile.findOne({
+        where: {
+          username: req.body.username,
+          password: req.body.password
+        }
+      })
+      .then(dbprofile => {
+        if (dbprofile) {
+          req.session.user = dbprofile.dataValues;
+          res.redirect('/profile');
+        }
+        else {
+          res.redirect('/');
+        }
+      });
+      // var in_username = request.body.username;
+      // var in_password = request.body.password;
+      // if (in_username && in_password) {
+      //     db.Profile.findOne({
+      //       where: {
+      //         username: request.body.username,
+      //       }
+      //     })
+      //     .then(profile => {
+      //       console.log(profile);
+      //         if(!profile) {
+      //           response.redirect('/');
+      //         } else {
+      //           req.session.user = user.dataValues;
+      //           response.redirect('/profile');  
+      //         }
+      //     })
+      //     .catch(err => {
+      //         console.log("user does not exist" + err);
+      //         response.redirect('/');
+      //     })
+      // } else {
+      //     response.send('Please enter Username and Password!');
+      //     response.end();
+      // }
   });
 
   app.post('/register', function(req, res) {
-    var profileData = {
+    db.Profile.create({
       name: req.body.name,
       username: req.body.username,
       password: req.body.password,
-      email: req.body.email
-    }
-    db.Profile.findOne({
-      where: {
-        email: req.body.email
-      }
+      email: req.body.email    
     })
     .then(profile => {
-      if (!profile) {
-        var hash = bcrypt.hashSync(profileData.password, 10);
-        profileData.password = hash;
-        db.Profile.create({
-          name: req.body.name,
-          username: req.body.username,
-          password: hash,
-          email: req.body.email    
-        })
-          .then(profile => {
-            req.session.user = profile.dataValues;
-            console.log(req.session.user);
-            res.redirect("/profile");
-          })
-          .catch(err => {
-            res.send("error: " + err)
-            console.log("error with creating the user")
-          })      
-      } else {
-        console.log("this user already exists")
-      }
-
+      req.session.user = profile.dataValues;
+      res.redirect("/profile");
     })
     .catch(err => {
-      console.log("error with sign up overall")
+      res.redirect("/signup")
     })      
+
+    // db.Profile.findOne({
+    //   where: {
+    //     email: req.body.email
+    //   }
+    // })
+    // .then(profile => {
+    //   if (!profile) {
+    //     db.Profile.create({
+    //       name: req.body.name,
+    //       username: req.body.username,
+    //       password: req.body.password,
+    //       email: req.body.email    
+    //     })
+    //     .then(profile => {
+    //       req.session.user = profile.dataValues;
+    //       console.log(req.session.user);
+    //       res.redirect("/profile");
+    //     })
+    //     .catch(err => {
+    //       res.redirect("/signup")
+    //     })      
+    //   } else {
+    //     console.log("this user already exists")
+    //   }
+    // })
+    // .catch(err => {
+    //   console.log("error with sign up overall")
+    // })      
 });
 
 
@@ -162,12 +176,13 @@ module.exports = function(app) {
   // });
 
   app.get("/profile", function(req, res) {
-    if (req.session.user && req.cookies.user_id) {
+    if (req.session.user) {
       res.render("profile");
     } else {
       res.redirect("/");
     }
   });
+  
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

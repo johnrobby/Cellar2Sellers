@@ -34,6 +34,34 @@ body {
     margin: 5px;
 }
 
+.city_img {
+    width: 35%;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    margin: 5px;
+}
+
+.work_img {
+    width: 35%;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    margin: 5px;
+}
+
+.profile_edit_img {
+    width: 35%;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    margin: 5px;
+}
+
+.wine_img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    margin: 5px;
+}
+
 .media {
     margin-top: 20px;
 }

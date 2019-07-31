@@ -1,6 +1,9 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var cookieParser = require('cookie-parser')
+var session = require('express-session')
+var bodyParser = require('body-parser');
 
 var db = require("./models");
 
@@ -8,8 +11,18 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(cookieParser());
+app.use(session({
+  key: 'user_sid',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    expires: 800000
+  }
+}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static("public"));
 
 // Handlebars
@@ -21,10 +34,26 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.use((req, res, next) => {
+  if(req.cookies.user_sid && !req.session.user) {
+    res.clearCookie('user_sid')
+  }
+  next();
+});
+
+module.exports = {
+  sessionChecker: function(req, res, next) {
+    if(req.session.user && req.cookies.user_sid) {
+      res.redirect('/profile');
+    }
+    next();  
+  }
+}
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
+//require("./routes/htmlRoutes")(app);
+var htmlroutes = require("./routes/htmlRoutes");
+app.use(htmlroutes);
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true

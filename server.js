@@ -21,7 +21,9 @@ app.use(session({
     expires: 800000
   }
 }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
@@ -35,26 +37,28 @@ app.engine(
 app.set("view engine", "handlebars");
 
 app.use((req, res, next) => {
-  if(req.cookies.user_sid && !req.session.user) {
+  if (req.cookies.user_sid && !req.session.user) {
     res.clearCookie('user_sid')
   }
   next();
 });
 
 module.exports = {
-  sessionChecker: function(req, res, next) {
-    if(req.session.user && req.cookies.user_sid) {
+  sessionChecker: function (req, res, next) {
+    if (req.session.user && req.cookies.user_sid) {
       res.redirect('/profile');
     }
-    next();  
+    next();
   }
 }
 // Routes
 require("./routes/apiRoutes")(app);
-//require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app);
 var htmlroutes = require("./routes/htmlRoutes");
 app.use(htmlroutes);
-var syncOptions = { force: false };
+var syncOptions = {
+  force: false
+};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
@@ -63,8 +67,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,

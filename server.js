@@ -14,7 +14,7 @@ var PORT = process.env.PORT || 3000;
 app.use(cookieParser());
 app.use(session({
   key: 'user_sid',
-  secret: 'secret',
+  secret: 'uiorwunqp39214un',
   resave: false,
   saveUninitialized: false,
   cookie: {

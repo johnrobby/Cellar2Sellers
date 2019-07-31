@@ -1,6 +1,7 @@
 var db = require("../models");
 var scheck = require("../server");
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 module.exports = function (app) {
 
@@ -50,17 +51,24 @@ module.exports = function (app) {
   //   });
 
   
-    app.post('/auth', function(req, res) {
+    app.post('/auth', function(req, response) {
       db.Profile.findOne({
         where: {
           username: req.body.username,
-          password: req.body.password
         }
       })
       .then(dbprofile => {
         if (dbprofile) {
-          req.session.user = dbprofile.dataValues;
-          res.redirect('/profile');
+          console.log(dbprofile.dataValues.password);
+          bcrypt.compare(req.body.username, dbprofile.dataValues.password, function(err, res) {
+            if (res) {
+              req.session.user = dbprofile.dataValues;
+              response.redirect('/profile');    
+            }
+            else {
+              response.redirect('/');
+            }
+        });
         }
         else {
           res.redirect('/');
@@ -94,19 +102,23 @@ module.exports = function (app) {
   });
 
   app.post('/register', function(req, res) {
-    db.Profile.create({
-      name: req.body.name,
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email    
-    })
-    .then(profile => {
-      req.session.user = profile.dataValues;
-      res.redirect("/profile");
-    })
-    .catch(err => {
-      res.redirect("/signup")
-    })      
+    var txtpassword = req.body.password;
+
+    bcrypt.hash(txtpassword, saltRounds, function(err, hash) {
+      db.Profile.create({
+        name: req.body.name,
+        username: req.body.username,
+        password: hash,
+        email: req.body.email    
+      })
+      .then(profile => {
+        req.session.user = profile.dataValues;
+        res.redirect("/profile");
+      })
+      .catch(error => {
+        res.redirect("/signup")
+      })      
+    });
 
     // db.Profile.findOne({
     //   where: {

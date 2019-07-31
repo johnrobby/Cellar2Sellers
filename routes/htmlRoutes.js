@@ -2,6 +2,7 @@ var db = require("../models");
 var scheck = require("../server");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+var User = {userName: ''};
 
 module.exports = function (app) {
 
@@ -59,7 +60,6 @@ module.exports = function (app) {
       })
       .then(dbprofile => {
         if (dbprofile) {
-          console.log(dbprofile.dataValues.password);
           bcrypt.compare(req.body.username, dbprofile.dataValues.password, function(err, res) {
             if (res) {
               req.session.user = dbprofile.dataValues;
@@ -201,7 +201,8 @@ module.exports = function (app) {
 
   app.get("/profile", function(req, res) {
     if (req.session.user) {
-      res.render("profile");
+      User.userName = req.session.user.username;
+      res.render("profile", User);
     } else {
       res.redirect("/");
     }

@@ -51,8 +51,9 @@ module.exports = {
 }
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
+//require("./routes/htmlRoutes")(app);
+var htmlroutes = require("./routes/htmlRoutes");
+app.use(htmlroutes);
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true

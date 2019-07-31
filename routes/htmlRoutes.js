@@ -2,14 +2,21 @@ var db = require("../models");
 var scheck = require("../server");
 const bcrypt = require('bcrypt');
 
-module.exports = function(app) {
-  
+module.exports = function (app) {
+
   // Load index page
   app.get("/", function(req, res) {
     res.render('index');
   });
 
   app.get("/signup", function(req, res) {
+
+//   app.get("/", scheck.sessionChecker, function (req, res) {
+//     res.render('index');
+//   });
+
+//   app.get("/signup", scheck.sessionChecker, function (req, res) {
+
     res.render('signup');
   });
 
@@ -41,6 +48,7 @@ module.exports = function(app) {
   //       console.log("error with logging in");
   //     })      
   //   });
+
   
     app.post('/auth', function(req, res) {
       db.Profile.findOne({
@@ -131,6 +139,9 @@ module.exports = function(app) {
 });
 
 
+
+
+
   // app.route("/signup") 
   //   .get((req, res) => {
   //     res.render('signup', scheck.hbsContent)
@@ -175,16 +186,18 @@ module.exports = function(app) {
   //     })      
   // });
 
+
   app.get("/profile", function(req, res) {
     if (req.session.user) {
       res.render("profile");
     } else {
       res.redirect("/");
     }
+
   });
   
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

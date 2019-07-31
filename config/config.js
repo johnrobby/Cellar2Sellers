@@ -4,16 +4,14 @@ module.exports = {
     "password": process.env.DB_PASS,
     "database": process.env.DB_DBNAME,
     "host": process.env.DB_HOST,
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": process.env.DB_PASS,
     "database": "testdb",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "mysql"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",

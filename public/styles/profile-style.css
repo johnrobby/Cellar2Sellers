@@ -1,0 +1,52 @@
+body {
+    background-image: url("../images/homescreen_photo.jpg");
+    background-size: 100% auto;
+    background-attachment: fixed;
+}
+
+#logo {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 30px;
+}
+
+#red {
+    color: #d9534f;
+}
+
+#user-interface {
+    margin-top: 5.5%;
+}
+
+.profile_img {
+    width: 70%;
+    border-radius: 50%;
+    margin-right: 30px;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border: 2px solid #000000;
+}
+
+.post_img {
+    width: 10%;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    margin: 5px;
+}
+
+.media {
+    margin-top: 20px;
+}
+
+#newsfeed {
+    margin-left: 30%;
+}
+
+.tab-pane {
+    color: white;
+    background: #343a40;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #000000;
+    margin-top: 5px;
+}

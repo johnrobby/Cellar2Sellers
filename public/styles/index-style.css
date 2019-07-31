@@ -22,3 +22,13 @@ body {
   margin-left: -150px;
   margin-top: -150px;
 }
+
+.sign-up {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  margin-left: -150px;
+  margin-top: -150px;
+}

@@ -59,10 +59,6 @@ require("./routes/apiRoutes")(app);
 // Routes
 require("./config/seeds")(app);
 
-//var htmlroutes = require("./routes/htmlRoutes");
-  // app.use(htmlroutes);
-
-
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {

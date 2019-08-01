@@ -1,18 +1,13 @@
 <div class="tab-pane fade" id="list-forSale" role="tabpanel" aria-labelledby="list-forSale-list">
+    <div class="container">
         <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col text-dark">
+            <div class="col text-dark">
                 {{#each dbwine}}
-                    {{#if this.sale}}
-                        {{> wines/wine_card/card}}
-                    {{/if}}
+                {{#if this.sale}}
+                {{> wines/wine_card/card}}
+                {{/if}}
                 {{/each}}
-                </div>
-                <div class="col text-dark">
-                </div>
             </div>
-            <br>
         </div>
     </div>
 </div>

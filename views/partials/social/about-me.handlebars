@@ -1,0 +1,100 @@
+<div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+    <div class="row">
+        <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+                <!-- About Me 1-->
+                <a class="list-group-item list-group-item-light list-group-item-action active" id="list-aboutMe-list"
+                    data-toggle="list" href="#list-aboutMe" role="tab" aria-controls="aboutMe">About Me</a>
+                <!-- Places 1-->
+                <a class="list-group-item list-group-item-light list-group-item-action" id="list-places-list"
+                    data-toggle="list" href="#list-places" role="tab" aria-controls="places">Places</a>
+                <!-- Occupation 1-->
+                <a class="list-group-item list-group-item-light list-group-item-action" id="list-occupation-list"
+                    data-toggle="list" href="#list-occupation" role="tab" aria-controls="occupation">Occupation</a>
+                <!-- Favorite Wine Makers 1-->
+                <a class="list-group-item list-group-item-light list-group-item-action" id="list-addWine-list"
+                    data-toggle="list" href="#list-addWine" role="tab" aria-controls="favoariteWineMakers">Add To Your
+                    Collection</a>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                <!-- About Me 2-->
+                <div class="tab-pane fade show active" id="list-aboutMe" role="tabpanel"
+                    aria-labelledby="list-aboutMe-list">
+                    <div class="text-center"><img class="profile_edit_img" src="./images/fake_profile.jpg"></div>
+                    <div>I am a former wine salesperson and ever
+                        since I left the wine industry I have been building my own wine sellar.
+                        As my collection grew I had a tougher time remebering which wines to hold and
+                        which ones to drink. So I created CellarSellers as a way to track, trade, buy
+                        and sell wines to friends within our community.
+                    </div>
+                </div>
+                <!-- Places 2 -->
+                <div class="tab-pane fade text-center" id="list-places" role="tabpanel"
+                    aria-labelledby="list-places-list">
+                    <img class="city_img" src="./images/city.JPG">
+                    <br>
+                    <div><a href="#" class="text-primary">Portland,Oregon</a></div>
+
+                </div>
+                <!-- Occupation 2 -->
+                <div class="tab-pane fade text-center" id="list-occupation" role="tabpanel"
+                    aria-labelledby="list-occupation-list">
+                    <img class="work_img" src="./images/occupation.JPG">
+                    <br>
+                    <div><span>• <a href="#" class="text-primary">Former Wine Industry Hack</a> at <a href="#"
+                                class="text-primary">Columbia Distibuting</a><span></span></div>
+                    <div><span>• <a href="#" class="text-primary">Aspiring Web Developer</a> at <a href="#"
+                                class="text-primary">Self Employed</a><span></span></div>
+                </div>
+                <!-- Favorite Wine Makers 2 -->
+                <div class="tab-pane fade" id="list-addWine" role="tabpanel" aria-labelledby="list-addWine-list">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Wine Name</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Wine Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Country of Origin</label>
+                                <input type="text" class="form-control" id="inputPassword4"
+                                    placeholder="Country of Origin">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Appelation</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Appelation">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Website</label>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Website">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Cost</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Cost">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState">Which Collection?</label>
+                                <select id="inputState" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option>For Sale</option>
+                                    <option>Private Collection</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Owner Description/Notes</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline-light btn-lg btn-block">Submit Wine To
+                            Collection</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

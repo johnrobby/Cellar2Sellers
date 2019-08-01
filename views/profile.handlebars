@@ -1,3 +1,64 @@
 <div>
-    <h1>HI</h1>
-</div>
+    <nav class="navbar navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="./images/Capture.JPG" width="30" height="30" class="d-inline-block align-top" alt="">
+            <span id=logo>Seller2<span id="red">Cellar</span></span>
+        </a>
+        <form class="form-inline">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Log Out</button>
+        </form>
+    </nav>
+
+    <div id="user-interface" class="container">
+        <div class="row">
+            <div id="side-navigation" class="col-3 position-fixed">
+                <!-- UserName -->
+                <h3 class="display-4 text-center">{{userName}}</h3>
+                <!-- Profile Picture -->
+                <img class="profile_img" src="./images/fake_profile.jpg">
+
+                <div class="list-group" id="list-tab" role="tablist">
+                    <!-- Profile 1-->
+                    <a class="list-group-item list-group-item-danger list-group-item-action active"
+                        id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
+                        aria-controls="profile">Profile</a>
+                    <!-- Social 1-->
+                    <a class="list-group-item list-group-item-danger list-group-item-action" id="list-social-list"
+                        data-toggle="list" href="#list-social" role="tab" aria-controls="social">Social</a>
+                    <!-- For Sale 1-->
+                    <a class="list-group-item list-group-item-danger list-group-item-action" id="list-forSale-list"
+                        data-toggle="list" href="#list-forSale" role="tab" aria-controls="forSale">For Sale</a>
+                    <!-- Priveate Stock 1-->
+                    <a class="list-group-item list-group-item-danger list-group-item-action" id="list-privateStock-list"
+                        data-toggle="list" href="#list-privateStock" role="tab" aria-controls="privateStock">Private
+                        Stock</a>
+                </div>
+            </div>
+            <div id="newsfeed" class="col-9">
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Profile 2-->
+                    {{> social/about-me}}
+                    <!-- Social 2-->
+                    {{> social/status-update}}
+                    <!-- For Sale 2 -->
+                    {{> wines/wine-sell}}
+                    <!-- Private Stock 2-->
+                    {{> wines/wine-private}}
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+            </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+            </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+            </script>
+        <script src="./app.js"></script>
+
+    </div>

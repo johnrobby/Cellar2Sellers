@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 // $('#myModal').on('shown.bs.modal', function () {
 //     $('#myInput').trigger('focus')
 // });
 
 
->>>>>>> 6cf058148ff21d3595d901dd4d451659341f073e
 $(function () {
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')

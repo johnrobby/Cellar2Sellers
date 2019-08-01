@@ -86,7 +86,7 @@ module.exports = function (app) {
         });
         }
         else {
-          res.redirect('/');
+          response.redirect('/');
         }
       });
       // var in_username = request.body.username;
@@ -216,11 +216,24 @@ module.exports = function (app) {
   // });
 
 
-
   app.get("/profile", function(req, res) {
     if (req.session.user) {
-      User.userName = req.session.user.username;
-      res.render("profile", User);
+      db.Wine.findAll({
+        include: [
+          {
+            model: db.Profile,
+            as: 'Profile'
+          }
+        ]
+      }).then(dbwine => {
+        console.log(dbwine);
+        // res.render('profile', req.session.user.username)
+        // User.userName = req.session.user.username;
+        res.render("profile", dbwine);  
+      })
+  
+      // User.userName = req.session.user.username;
+      // res.render("profile", User);
 
     } else {
       res.redirect("/");

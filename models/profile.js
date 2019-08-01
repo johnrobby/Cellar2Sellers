@@ -18,13 +18,13 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       }
     });
-    // Profile.associate = function(models) {
-    //   // Associating Author with Posts
-    //   // When an Author is deleted, also delete any associated Posts
-    //   Profile.hasMany(models.Wine, {
-    //     onDelete: "cascade"
-    //   });
-    // };
+    
+    Profile.associate = function(models) {
+      Profile.hasMany(models.Wine, {
+        as: 'Wine',
+        foreignkey: 'ProfileId'
+      });
+    };
   
   
     return Profile;

@@ -9,13 +9,12 @@ module.exports = function(sequelize, DataTypes) {
       sale: DataTypes.BOOLEAN
     });
 
-    // Wine.associate = function(models) {
-    //   Wine.belongsTo(models.Profile, {
-    //     foreignKey: {
-    //       allowNull: false
-    //     }
-    //   });
-    // };
+    Wine.associate = function(models) {
+      Wine.belongsTo(models.Profile, {
+        as: 'Profile',
+        foreignKey: 'ProfileId'
+      });
+    };
   
        return Wine;
   };

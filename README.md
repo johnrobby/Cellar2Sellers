@@ -22,7 +22,7 @@ DB_DBNAME = cellardb
 Seller2Cellar is a full-stack application, so the functionality should all me accessable from the browser of your choice. 
 
 ## Technologies
-•Vanilla Javascript
+•JavaScript
 •Node.js
 •Jquery
 •Handlebars

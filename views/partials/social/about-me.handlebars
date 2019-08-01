@@ -20,7 +20,7 @@
         <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
                 <!-- About Me 2-->
-                <div class="tab-pane fade show active" id="list-aboutMe" role="tabpanel"
+                <div class="tab-pane fade show active border-danger" id="list-aboutMe" role="tabpanel"
                     aria-labelledby="list-aboutMe-list">
                     <div class="text-center"><img class="profile_edit_img" src="./images/fake_profile.jpg"></div>
                     <div>I am a former wine salesperson and ever
@@ -31,26 +31,28 @@
                     </div>
                 </div>
                 <!-- Places 2 -->
-                <div class="tab-pane fade text-center" id="list-places" role="tabpanel"
+                <div class="tab-pane fade text-center border-danger" id="list-places" role="tabpanel"
                     aria-labelledby="list-places-list">
                     <img class="city_img" src="./images/city.JPG">
                     <br>
-                    <div><a href="#" class="text-primary">Portland,Oregon</a></div>
+                    <div><a href="#" class="text-danger">Portland,Oregon</a></div>
 
                 </div>
                 <!-- Occupation 2 -->
-                <div class="tab-pane fade text-center" id="list-occupation" role="tabpanel"
+                <div class="tab-pane fade text-center border-danger" id="list-occupation" role="tabpanel"
                     aria-labelledby="list-occupation-list">
                     <img class="work_img" src="./images/occupation.JPG">
                     <br>
-                    <div><span>• <a href="#" class="text-primary">Former Wine Industry Hack</a> at <a href="#"
-                                class="text-primary">Columbia Distibuting</a><span></span></div>
-                    <div><span>• <a href="#" class="text-primary">Aspiring Web Developer</a> at <a href="#"
-                                class="text-primary">Self Employed</a><span></span></div>
+                    <div><span>• <a href="#" class="text-danger">Former Wine Industry Hack</a> at <a href="#"
+                                class="text-danger">Columbia Distibuting</a><span></span></div>
+                    <div><span>• <a href="#" class="text-danger">Aspiring Web Developer</a> at <a href="#"
+                                class="text-danger">Self Employed</a><span></span></div>
                 </div>
                 <!-- Favorite Wine Makers 2 -->
-                <div class="tab-pane fade" id="list-addWine" role="tabpanel" aria-labelledby="list-addWine-list">
-                    <form class="create-wine" action="/api/wines" method="POST">
+
+                <div class="tab-pane fade border-danger" id="list-addWine" role="tabpanel"
+                    aria-labelledby="list-addWine-list">
+                    <form class="create-wine">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="title">Wine Name</label>
@@ -69,7 +71,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="website">Website</label>
-                                <input type="text" class="form-control" id="website" placeholder="Website" name="website">
+                                <input type="text" class="form-control" id="website" placeholder="Website"
+                                    name="website">
                             </div>
                         </div>
                         <div class="form-row">

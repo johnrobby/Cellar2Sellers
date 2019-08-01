@@ -1,4 +1,4 @@
-//var db = require("../models");
+var db = require("../models");
 
 //module.exports = function (app) {
   // Get all examples
@@ -19,40 +19,38 @@
     //});
   //});
 //};
-var express = require('express');
-var sequelize = require('sequelize');
-var wines = require('../models/wine.js');
+
 //var routes = require('./config/seeds');
 
 
 module.exports = function(app){
 
-app.get('/',function(req,res){
-  wines.all(function(wine_data){
+app.get('/api/wines',function(req,res){
+  db.Wine.all(function(wine_data){
     console.log(wine_data);
-    res.json('wines');
+    res.json(wine_data);
   });
 });
 
 
-app.post('/', function(req,res){
+app.post('/api/wines', function(req,res){
   console.log(req,body);
-  db.wine.create({
-    title: req, body, title,
-    country: req, body, country,
-    appelation: req, body, appelation,
-    vintage: req, body, vintage,
-    cost: req, body, cost,
-    website: req, body, website,
-    sale: req, body, sale
+  db.Wine.create({
+    title: req.body.title,
+    country: req.body.country,
+    appelation: req.body.appelation,
+    vintage: req.body.vintage,
+    cost: req.body.cost,
+    website: req.body.website,
+    sale: req.body.sale
   })
   .then(function(dbwine){
     res.json(dbwine);
   });
 });
 
-app.put('/', function(req,res){
-  dbwine.update(req.body,
+app.put('/api/wines', function(req,res){
+  db.Wine.update(req.body,
     {
       where:{
         id: req.body.id

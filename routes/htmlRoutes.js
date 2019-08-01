@@ -230,8 +230,17 @@ module.exports = function (app) {
   
   // Render 404 page for any unmatched routes
 
-  app.get("*", function (req, res) {
+  app.get('/logout', (req, res) => {
+    if (req.session.user) {
+      User.userName = '';
+      req.session.destroy();
+      res.redirect('/');
+    } else {
+      console.log("error with destroying");
+    }
+});
 
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

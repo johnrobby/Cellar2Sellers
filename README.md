@@ -10,10 +10,12 @@ Welcome to Seller2Cellar. We are a small start up social network and private tra
 
 4. from the .env file, you will have to insert the following code to access your local database.
 
-```DB_HOST = localhost
+```
+DB_HOST = localhost
 DB_USER = root
 DB_PASS = your_password
-DB_DBNAME = cellardb```
+DB_DBNAME = cellardb
+```
 
 ## Usage
 

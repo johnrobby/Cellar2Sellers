@@ -1,7 +1,3 @@
-// $('#myModal').on('shown.bs.modal', function () {
-//     $('#myInput').trigger('focus')
-// });
-
 $(function () {
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
@@ -28,5 +24,11 @@ $(function () {
                 console.log("created new wine");
                 location.reload();
             });
+    });
+    
+    hbs.registerHelper('select', function(selected, options) {
+        return options.fn(this).replace(
+            new RegExp(' value=\"' + selected + '\"'),
+            '$& selected="selected"');
     });
 });

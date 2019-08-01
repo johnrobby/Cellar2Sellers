@@ -50,11 +50,11 @@
                 </div>
                 <!-- Favorite Wine Makers 2 -->
                 <div class="tab-pane fade" id="list-addWine" role="tabpanel" aria-labelledby="list-addWine-list">
-                    <form class="create-wine">
+                    <form class="create-wine" action="/api/wines" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="title">Wine Name</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Wine Name">
+                                <input type="text" class="form-control" id="title" placeholder="Wine Name" name="title">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="country">Country of Origin</label>
@@ -65,7 +65,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="appelation">Appelation</label>
-                                <input type="text" class="form-control" id="appelation" name="appelation"placeholder="Appelation">
+                                <input type="text" class="form-control" id="appelation" placeholder="Appelation" name="appelation">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="website">Website</label>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="collection">Which Collection?</label>
-                                <select id="collection" class="form-control" name="collection">
+                                <select id="collection" class="form-control" name="sale">
                                     <option selected>Choose...</option>
                                     <option value="1">For Sale</option>
                                     <option value="0">Private Collection</option>

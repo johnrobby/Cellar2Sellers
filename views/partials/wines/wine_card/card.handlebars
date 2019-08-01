@@ -4,7 +4,7 @@
     </div>
     <div class="container bg-dark">
         <div class="row">
-            <div class="col-6">
+            <div class="col-10">
                 <div class="text-light">Country of Origin:</div>
                 <div class="text-secondary">{{this.country}}</div>
                 <div class="text-light">Appelation:</div>
@@ -12,15 +12,21 @@
                 <div class="text-light">Vintage:</div>
                 <div class="text-secondary">{{this.vintage}}</div>
             </div>
-            <div class="col-6 text-center">
-                <h1 class="float-right text-light">${{this.cost}}</h1>
-                <form>
-                <button type="button" class="btn btn-outline-light float-right" 
-                onclick="window.location.href = 'https://{{this.website}}'">Vineyard
-                    Link</button>
-                </form>
+            <div class="col-2">
+                <div id="price-button">
+                    <div class="row float-right">
+                        <h1 class="float-right text-light">${{this.cost}}</h1>
+                    </div>
+                    <div class="row float-right">
+                        <form>
+                            <button type="button" class="btn btn-lg btn-block btn-outline-light float-right"
+                                onclick="window.location.href = 'https://{{this.website}}'">Vineyard</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <img class="wine_img" src="./images/wine_bottle.jpg">
     </div>
 </div>
+<br>

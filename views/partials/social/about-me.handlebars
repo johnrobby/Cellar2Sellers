@@ -54,32 +54,32 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="title">Wine Name</label>
-                                <input type="text" class="form-control" id="title" placeholder="Wine Name">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Wine Name">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="country">Country of Origin</label>
-                                <input type="text" class="form-control" id="country"
+                                <input type="text" class="form-control" id="country" name="country"
                                     placeholder="Country of Origin">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="appelation">Appelation</label>
-                                <input type="text" class="form-control" id="appelation" placeholder="Appelation">
+                                <input type="text" class="form-control" id="appelation" name="appelation"placeholder="Appelation">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="website">Website</label>
-                                <input type="text" class="form-control" id="website" placeholder="Website">
+                                <input type="text" class="form-control" id="website" placeholder="Website" name="website">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="cost">Cost</label>
-                                <input type="number" class="form-control" id="cost" placeholder="Cost">
+                                <input type="number" class="form-control" id="cost" placeholder="Cost" name="cost">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="collection">Which Collection?</label>
-                                <select id="collection" class="form-control">
+                                <select id="collection" class="form-control" name="collection">
                                     <option selected>Choose...</option>
                                     <option value="1">For Sale</option>
                                     <option value="0">Private Collection</option>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group">
                             <label for="vintage">Vintage</label>
-                            <input type="text" class="form-control" id="vintage">
+                            <input type="date" class="form-control" id="vintage" name="vintage">
                         </div>
                         <button type="submit" class="btn btn-outline-light btn-lg btn-block">Submit Wine To
                             Collection</button>

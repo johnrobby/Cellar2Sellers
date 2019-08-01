@@ -1,6 +1,7 @@
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-});
+// $('#myModal').on('shown.bs.modal', function () {
+//     $('#myInput').trigger('focus')
+// });
+
 
 $(function () {
     $('#myModal').on('shown.bs.modal', function () {
@@ -20,8 +21,8 @@ $(function () {
             sale: $("#sale").val().trim()
         };
 
-        $.ajax("api/wines", {
-            type: postMessage,
+        $.ajax("/api/wines", {
+            type: "POST",
             data: newWine
         }).then(
             function () {

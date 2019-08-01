@@ -3,19 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col text-dark">    
-                {{#each wines}}
-                    {{#if sale}}
-                    {{> wines/wine_card/card sale=false}}
-                    {{/if}}
-                {{/each}}                  
-       
+                {{#each dbwine}}
+                    {{#unless this.sale}}
+                        {{> wines/wine_card/card}}
+                    {{/unless}}
+                {{/each}}             
                 </div>
                 <div class="col text-dark">
-                {{#each wines}}
-                    {{#if sale}}
-                    {{> wines/wine_card/card sale=false}}
-                    {{/if}}
-                {{/each}}                  
                 </div>
             </div>
             <br>

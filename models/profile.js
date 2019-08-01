@@ -19,12 +19,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
     
-    Profile.associate = function(models) {
-      Profile.hasMany(models.Wine, {
-        as: 'Wine',
-        foreignkey: 'ProfileId'
-      });
-    };
+    // Profile.associate = function(models) {
+    //   Profile.hasMany(models.Wine, {
+    //     as: 'Wine',
+    //     foreignkey: 'ProfileId'
+    //   });
+    // };
   
   
     return Profile;

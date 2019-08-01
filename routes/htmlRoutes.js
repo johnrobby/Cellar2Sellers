@@ -218,18 +218,11 @@ module.exports = function (app) {
 
   app.get("/profile", function(req, res) {
     if (req.session.user) {
-      db.Wine.findAll({
-        include: [
-          {
-            model: db.Profile,
-            as: 'Profile'
-          }
-        ]
-      }).then(dbwine => {
+      db.Wine.findAll().then(dbwine => {
         console.log(dbwine);
         // res.render('profile', req.session.user.username)
         // User.userName = req.session.user.username;
-        res.render("profile", dbwine);  
+        res.render("profile", {dbwine});  
       })
   
       // User.userName = req.session.user.username;

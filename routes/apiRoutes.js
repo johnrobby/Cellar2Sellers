@@ -26,15 +26,17 @@ var db = require("../models");
 module.exports = function(app){
 
 app.get('/api/wines',function(req,res){
-  db.Wine.all(function(wine_data){
-    console.log(wine_data);
-    res.json(wine_data);
-  });
+  // db.Wine.findAll(function(wine_data){
+  //   console.log(wine_data);
+  //   res.json(wine_data);
+  // });
+  db.Wine.findAll().then(dbwine => {
+    res.json(dbwine);
+  })
 });
 
 
 app.post('/api/wines', function(req,res){
-  console.log(req,body);
   db.Wine.create({
     title: req.body.title,
     country: req.body.country,
@@ -49,17 +51,17 @@ app.post('/api/wines', function(req,res){
   });
 });
 
-app.put('/api/wines', function(req,res){
-  db.Wine.update(req.body,
-    {
-      where:{
-        id: req.body.id
-      }  
-})
-.then(function(dbwine){
-  res.json(dbwine);
-});
-});
+// app.put('/api/wines', function(req,res){
+//   db.Wine.update(req.body,
+//     {
+//       where:{
+//         id: req.body.id
+//       }  
+// })
+// .then(function(dbwine){
+//   res.json(dbwine);
+// });
+// });
 };
 // PUT route for updating posts
 

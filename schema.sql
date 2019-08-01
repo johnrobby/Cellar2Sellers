@@ -1,4 +1,1 @@
-DROP DATABASE IF EXISTS cellardb;
-CREATE DATABASE cellardb;
-
-USE cellardb;
+CREATE DATABASE IF NOT EXISTS cellardb;

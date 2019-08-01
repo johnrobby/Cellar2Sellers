@@ -18,16 +18,15 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       }
     });
-
-    // Profile.beforeCreate((profile, options) => {
-    //   const salt = bcrypt.genSaltSync();
-    //   profile.password = bcrypt.hashSync(profile.password, salt);
-    // });
-
-    // Profile.prototype.validatePass = function(password){
-    //   return bcrypt.compareSync(password, this.password);
-    // };
-
+    Profile.associate = function(models) {
+      // Associating Author with Posts
+      // When an Author is deleted, also delete any associated Posts
+      Profile.hasMany(models.Wine, {
+        onDelete: "cascade"
+      });
+    };
+  
+  
     return Profile;
   };
   

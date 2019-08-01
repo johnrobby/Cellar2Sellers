@@ -1,6 +1,17 @@
 var db = require("../models");
 var scheck = require("../server");
 const bcrypt = require('bcrypt');
+
+//var express = require("express");
+
+  
+  // Load index page
+ // app.get("/", scheck.sessionChecker, function(req, res) {
+    //res.render('index');
+  //});
+
+  //app.get("/signup", scheck.sessionChecker, function(req, res) {
+
 const saltRounds = 10;
 var User = {userName: ''};
 
@@ -18,6 +29,7 @@ module.exports = function (app) {
 //   });
 
 //   app.get("/signup", scheck.sessionChecker, function (req, res) {
+
 
     res.render('signup');
   });
@@ -52,6 +64,8 @@ module.exports = function (app) {
   //   });
 
   
+
+
     app.post('/auth', function(req, response) {
       db.Profile.findOne({
         where: {
@@ -66,6 +80,7 @@ module.exports = function (app) {
               response.redirect('/profile');    
             }
             else {
+
               response.redirect('/');
             }
         });
@@ -102,6 +117,7 @@ module.exports = function (app) {
   });
 
   app.post('/register', function(req, res) {
+
     var txtpassword = req.body.password;
 
     bcrypt.hash(txtpassword, saltRounds, function(err, hash) {
@@ -148,6 +164,7 @@ module.exports = function (app) {
     // .catch(err => {
     //   console.log("error with sign up overall")
     // })      
+
 });
 
 
@@ -199,10 +216,12 @@ module.exports = function (app) {
   // });
 
 
+
   app.get("/profile", function(req, res) {
     if (req.session.user) {
       User.userName = req.session.user.username;
       res.render("profile", User);
+
     } else {
       res.redirect("/");
     }
@@ -210,7 +229,9 @@ module.exports = function (app) {
   });
   
   // Render 404 page for any unmatched routes
+
   app.get("*", function (req, res) {
+
     res.render("404");
   });
 };

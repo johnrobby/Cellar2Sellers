@@ -54,15 +54,19 @@ var hbsObject = {Title: '', Country: '', Appelation: '', Vintage: '', Cost: '', 
 // });
 
 app.post('/api/wines', function(req,res){
-  db.Wine.create(
-    req.body
-  )
+  db.Wine.create({
+    title: req.body.title,
+    country: req.body.country,
+    appelation: req.body.appelation,
+    vintage: req.body.vintage,
+    cost: req.body.cost,
+    website: req.body.website,
+    sale: req.body.sale
+  })
   .then(function(dbwine){
-    console.log(dbwine);
     res.redirect('/profile');
   });
 });
-
 // app.put('/api/wines', function(req,res){
 //   db.Wine.update(req.body,
 //     {

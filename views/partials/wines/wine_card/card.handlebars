@@ -1,20 +1,20 @@
 <div class="card" style="width: 100%;">
     <div class="card-header text-center">
-        Wine Name
+        {{title}}
     </div>
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <div class="text-dark">Country of Origin:</div>
-                <div class="text-secondary">Wisconson</div>
+                <div class="text-secondary">{{country}}</div>
                 <div class="text-dark">Appelation:</div>
-                <div class="text-secondary">That Hill Over Der</div>
+                <div class="text-secondary">{{appelation}}</div>
                 <div class="text-dark">Vintage:</div>
-                <div class="text-secondary">Like pretty old</div>
+                <div class="text-secondary">{{vintage}}</div>
             </div>
             <div class="col-6 text-center">
-                <h1 class="float-right">$78.95</h1>
-                <button type="button" class="btn btn-outline-dark float-right">Vineyard
+                <h1 class="float-right">${{cost}}</h1>
+                <button type="button" class="btn btn-outline-dark float-right" href="{{website}}" >Vineyard
                     Link</button>
             </div>
         </div>

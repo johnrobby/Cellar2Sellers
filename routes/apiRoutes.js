@@ -25,29 +25,41 @@ var db = require("../models");
 module.exports = function(app){
 var hbsObject = {Title: '', Country: '', Appelation: '', Vintage: '', Cost: '', Website: '', Sale: ''}
 
-app.get('/api/wines',function(req,res){
-  // db.Wine.findAll(function(wine_data){
-  //   console.log(wine_data);
-  //   res.json(wine_data);
-  // });
-  db.Wine.findAll().then(dbwine => {
-    res.json(dbwine);
+// app.get("/profile", function(req, res) {
+//   if (req.session.user) {
+//     // User.userName = req.session.user.username;
+//     // db.Wine.findAll().then(dbwine => {
+//     //   console.log(dbwine);
+//     //   // res.render('profile', req.session.user.username)
+//     // })
+//     // res.render("profile");
+
+//   } else {
+//     res.redirect("/");
+//   }
+
+// });
+
+// app.get('/api/wines',function(req,res){
+//   // db.Wine.findAll(function(wine_data){
+//   //   console.log(wine_data);
+//   //   res.json(wine_data);
+//   // });
+  
+//   db.Wine.findAll().then(dbwine => {
+//     console.log(dbwine);
+//     return res.render('/profile', dbwine)
     
-  })
-});
+//   })
+// });
 
 app.post('/api/wines', function(req,res){
-  db.Wine.create({
-    title: req.body.title,
-    country: req.body.country,
-    appelation: req.body.appelation,
-    vintage: req.body.vintage,
-    cost: req.body.cost,
-    website: req.body.website,
-    sale: req.body.sale
-  })
+  db.Wine.create(
+    req.body
+  )
   .then(function(dbwine){
-    res.json(dbwine);
+    console.log(dbwine);
+    res.redirect('/profile');
   });
 });
 

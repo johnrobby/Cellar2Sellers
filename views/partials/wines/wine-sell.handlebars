@@ -4,11 +4,12 @@
             <div class="row">
                 <div class="col text-dark">
                 {{#each dbwine}}
-                    {{> wines/wine_card/card}}
+                    {{#if this.sale}}
+                        {{> wines/wine_card/card}}
+                    {{/if}}
                 {{/each}}
                 </div>
                 <div class="col text-dark">
-                                
                 </div>
             </div>
             <br>

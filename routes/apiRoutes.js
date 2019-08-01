@@ -22,8 +22,8 @@ var db = require("../models");
 
 //var routes = require('./config/seeds');
 
-
 module.exports = function(app){
+var hbsObject = {Title: '', Country: '', Appelation: '', Vintage: '', Cost: '', Website: '', Sale: ''}
 
 app.get('/api/wines',function(req,res){
   // db.Wine.findAll(function(wine_data){
@@ -32,9 +32,9 @@ app.get('/api/wines',function(req,res){
   // });
   db.Wine.findAll().then(dbwine => {
     res.json(dbwine);
+    
   })
 });
-
 
 app.post('/api/wines', function(req,res){
   db.Wine.create({

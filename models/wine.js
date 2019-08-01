@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       cost: DataTypes.DECIMAL(10,2),
       website: DataTypes.STRING,
       sale: DataTypes.BOOLEAN
+      
     });
 
     // Wine.associate = function(models) {

@@ -2,9 +2,9 @@ var db = require("../models");
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
-var User = {userName: ''};
 
 module.exports = function (app) {
+  var User = {userName: ''};
 
   // Load index page
   app.get("/", function(req, res) {
@@ -69,9 +69,9 @@ module.exports = function (app) {
 
   app.get("/profile", function(req, res) {
     if (req.session.user) {
-      
+      User.userName = req.session.user.username;
       db.Wine.findAll().then(dbwine => {
-        res.render("profile", {dbwine});  
+        res.render("profile", {User, dbwine}); 
       })
     } else {
       res.redirect("/");

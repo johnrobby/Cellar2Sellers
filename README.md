@@ -25,12 +25,14 @@ Seller2Cellar is a full-stack application, so the functionality should all me ac
 
 ## Technologies
 ```
-•JavaScript
-•Node.js
-•Jquery
-•Handlebars
-•Mocha Test Framework
-•Chai Test Framework
+â€¢JavaScript
+â€¢Node.js
+â€¢Jquery
+â€¢Handlebars
+â€¢Mocha Test Framework
+â€¢Chai Test Framework
+â€¢Sequelize
+â€¢mySQL
 ```
 
 ## Contributing
